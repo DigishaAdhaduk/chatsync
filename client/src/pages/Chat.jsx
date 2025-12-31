@@ -17,7 +17,6 @@ export default function Chat({ user, onLogout }) {
 
   const bottomRef = useRef(null)
 
-  /* ---------------- LOAD ROOMS ---------------- */
   useEffect(() => {
     fetch('http://localhost:5001/rooms')
       .then(r => r.json())
@@ -27,7 +26,7 @@ export default function Chat({ user, onLogout }) {
       })
   }, [])
 
-  /* ---------------- LOAD MESSAGES ---------------- */
+
   useEffect(() => {
     if (!currentRoom) return
 
@@ -43,12 +42,12 @@ export default function Chat({ user, onLogout }) {
     })
   }, [currentRoom])
 
-  /* ---------------- AUTO SCROLL ---------------- */
+
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
-  /* ---------------- SEND MESSAGE ---------------- */
+
   async function send() {
     if (!file && !text.trim()) return
 
@@ -75,7 +74,7 @@ export default function Chat({ user, onLogout }) {
     setFile(null)
   }
 
-  /* ---------------- GROUP ACTIONS ---------------- */
+
   async function createGroup() {
     if (!input.trim()) return
     setGroupLoading(true)
@@ -132,7 +131,7 @@ export default function Chat({ user, onLogout }) {
     setModal(null)
   }
 
-  /* ---------------- UI ---------------- */
+
   return (
     <div className="layout">
       <div className="sidebar">
