@@ -1,0 +1,398 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system;
+  background: linear-gradient(135deg, #eef2f7, #e6ebf2);
+  color: #111827;
+}
+
+/* ---------- LAYOUT ---------- */
+
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* ---------- SIDEBAR ---------- */
+
+.sidebar {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(0,0,0,0.06);
+}
+
+.sidebar h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.room {
+  padding: 12px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  transition: background 0.15s ease;
+}
+
+.room:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.room.active {
+  background: #2563eb;
+  color: white;
+}
+
+.sidebar button {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout {
+  margin-top: auto;
+  background: #ef4444;
+}
+
+/* ---------- CHAT ---------- */
+
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 32px;
+}
+
+.chat-area h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+/* ---------- MESSAGES ---------- */
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.message {
+  max-width: 65%;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.message.me {
+  margin-left: auto;
+  background: #2563eb;
+  color: white;
+}
+
+.message-user {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.message img {
+  max-width: 240px;
+  border-radius: 14px;
+  margin-top: 6px;
+}
+
+/* ---------- INPUT ---------- */
+
+.input {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 12px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.input input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+}
+
+.input button {
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+/* ---------- MENU ---------- */
+
+.menu {
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+  min-width: 190px;
+  overflow: hidden;
+  animation: fadeUp 0.18s ease;
+}
+
+.menu div {
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.menu div:hover {
+  background: #f3f4f6;
+}
+
+.menu .danger {
+  color: #ef4444;
+}
+
+/* ---------- MODAL ---------- */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: white;
+  padding: 26px;
+  border-radius: 18px;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: scaleIn 0.2s ease;
+}
+
+.modal input {
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+}
+
+.modal button {
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+}
+
+.modal .danger {
+  background: #ef4444;
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+/* ================= AUTH PAGES ================= */
+
+.auth-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eef2f7, #e6ebf2);
+}
+
+.auth-card {
+  width: 380px;
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: scaleIn 0.2s ease;
+}
+
+.auth-card h2 {
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.auth-card p {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.auth-card input {
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.auth-card button {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.auth-card button:hover {
+  opacity: 0.9;
+}
+
+.auth-link {
+  margin-top: 6px;
+  font-size: 14px;
+  text-align: center;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.auth-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  text-align: center;
+}
+/* ===== FIX THREE DOT MENU CLICK ISSUE ===== */
+
+.room {
+  position: relative;
+  overflow: visible;
+}
+
+.menu {
+  position: absolute;
+  right: 8px;
+  top: 36px;
+  z-index: 9999;
+  pointer-events: auto;
+}
+/* ===== MINOR UI POLISH ===== */
+
+.room {
+  position: relative;
+  transition: background 0.15s ease;
+}
+
+.room:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.room-menu {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.room:hover .room-menu {
+  opacity: 1;
+}
+
+.menu {
+  animation: fadeUp 0.15s ease;
+}
+
+.menu div {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.menu div:hover {
+  background: #f3f4f6;
+}
+
+.message {
+  transition: transform 0.1s ease;
+}
+
+.message:hover {
+  transform: translateY(-1px);
+}
+/* ===== SMOOTH THREE DOT MENU ===== */
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+}
+
+.menu {
+  position: absolute;
+  right: 10px;
+  top: 36px;
+  background: white;
+  border-radius: 12px;
+  min-width: 180px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  z-index: 50;
+  animation: menuPop 0.15s ease;
+}
+
+.menu div {
+  padding: 12px 14px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.menu div:hover {
+  background: #f3f4f6;
+}
+
+@keyframes menuPop {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
